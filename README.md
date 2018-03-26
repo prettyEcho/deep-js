@@ -1,5 +1,5 @@
 <h1 align="center" style="border-bottom: 1px solid #ccc">
-    <img src="./img/js.png" style="width: 5%"><br>
+    <img src="./img/js.png" width="20%"><br>
     <span align="center" style="font-size: 30px">Deep-js</span>
 </h1>  
 
@@ -22,5 +22,5 @@
 ### March
 
 * March 5, 2017 👉 [原来JavaScript内部是这样运行的](https://github.com/prettyEcho/deep-js/issues/1)
-* March 5, 2017 👉 [彻底搞懂JavaScript作用域](https://github.com/prettyEcho/deep-js/issues/2)
-* March 5, 2017 👉 [闭包，是真的美](https://github.com/prettyEcho/deep-js/issues/3)
+* March 15, 2017 👉 [彻底搞懂JavaScript作用域](https://github.com/prettyEcho/deep-js/issues/2)
+* March 23, 2017 👉 [闭包，是真的美](https://github.com/prettyEcho/deep-js/issues/3)
