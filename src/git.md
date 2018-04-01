@@ -1,4 +1,6 @@
-### git命令
+<p style="color: rgb(253,201,11);" align="center">🐬🐬 欢迎评论和star 🐳🐳</p>
+
+### git命令行
 
 1. git clone
     * 用于将远端仓库拷贝到本地
