@@ -1,10 +1,10 @@
-<p style="color: rgb(253,201,11); text-align: center">🐬🐬 欢迎评论和star 🐳🐳</p>
+<p style="color: rgb(253,201,11);" align="center">🐬🐬 欢迎评论和star 🐳🐳</p>
 
-天气渐渐转暖了，树渐渐露出了枝芽，小河也欢快的向前留着，感觉大地充满的生命力，真的好开心 😄😄😄
+天气渐渐转暖了，树渐渐露出了枝芽，小河也欢快的向前流着，感觉大地充满的生命力，真的好开心 😄😄😄
 
 附上美图一张
 <p style="text-align: center">
-<img src="./img/spring.jpeg" alt="AST" style="width: 20%">
+<img src="../img/spring.jpeg" alt="AST" style="width: 20%">
 </p>
 
 小伙伴们，我们也出来活动活动筋骨，迎接我们2018年的春天。
