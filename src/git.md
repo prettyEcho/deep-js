@@ -31,10 +31,19 @@
     * Changes not staged for commit: 在工作区已经追踪的文件
     * Untracked files: 在工作区未追踪的文件
 
-6. git log 
+6. git pull 
+    * 拉取并合并远端项目(默认拉取marter项目)
+
+7. git push
+    * 推送本地git到远端
+    * git push 
+    * git push origin <branch>: 推送本地git到远端某个分支
+    * git push --set-upstream origin <branch>: 创建远端分支并推送代码
+
+8. git log git
     * 命令显示已提交的快照
 
-7. git checkout
+9. git checkout
     * 这个命令有三个不同的作用：检出文件、检出提交和检出分支
     * 提交层面
         + 移动HEAD指针到固定的提交
@@ -53,7 +62,7 @@
         + 切换分支
         + git checkout <branch>
 
-8. git reset
+10. git reset
     * 修改提交版本，会删除提交历史（一定要谨慎），切记当把提交推送到远端后，禁止使用git reset
     * 提交层面
 
@@ -88,7 +97,8 @@
         <img src="../img/reset-file.svg" alt="reset-file" style="width: 40%">
     </p>
 
-9. git revert
+11. git revert
+
     * Revert撤销一个提交的同时会创建一个新的提交。这是一个安全的方法，因为它不会重写提交历史。
     * git revert HEAD~2
         - 会找出倒数第二个提交，然后创建一个新的提交来撤销这些更改，然后把这个提交加入项目中。
@@ -97,19 +107,27 @@
         <img src="../img/revert.svg" alt="revert" style="width: 40%">
     </p>
 
-10. git stash
+12. git stash
     * git stash : 暂存当前正在进行的工作
     * git stash pop : 恢复暂存的文件
     * git stash list: 显示暂存栈中所有暂存的历史
     * git stash apply stash@{1} : 将指定暂存纪录恢复
     * git stash clear : 清空暂存栈
 
-11. 简记图
+13. git branch
+    * 创建、列出、重命名和删除分支
+    * git branch : 列出所有分支
+    * git branch <branch> : 创建一个名为<branch>的分支
+    * git branch -d <branch> : 删除指定分支。这是一个安全的操作，Git 会阻止你删除包含未合并更改的分支。
+    * git branch -D <branch> : 强制删除指定分支，即使包含未合并更改。如果你希望永远删除某条开发线的所有提交，你应该用这个命令。
+    * git branch -m <branch> : 将当前分支命名为 <branch>。
+
+14. 简记图
 
 <p style="text-align: center">
     <img src="../img/main.jpg" alt="main" style="width: 40%">
 </p>
 
-12. 参考
+15. 参考
 [https://www.cnblogs.com/houpeiyong/p/5890748.html](https://www.cnblogs.com/houpeiyong/p/5890748.html)
 [https://github.com/geeeeeeeeek/git-recipes](https://github.com/geeeeeeeeek/git-recipes)
