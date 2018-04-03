@@ -1,3 +1,7 @@
+> BY 张建成([prettyEcho@github](https://github.com/prettyEcho))
+> 
+>  除非另行注明，页面上所有内容采用知识共享-署名（[CC BY 2.5 AU](https://creativecommons.org/licenses/by/2.5/au/deed.zh)）协议共享
+
 <p style="color: rgb(253,201,11);" align="center">🐬🐬 欢迎评论和star 🐳🐳</p>
 
 我们常说，**万物都有其存在的价值**，这话的确不错，但是深思一下，是不是需要有个前提，**万物都在某些领域或多或少的存在某些价值**。

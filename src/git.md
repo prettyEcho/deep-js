@@ -1,3 +1,7 @@
+> BY 张建成([prettyEcho@github](https://github.com/prettyEcho))
+> 
+>  除非另行注明，页面上所有内容采用知识共享-署名（[CC BY 2.5 AU](https://creativecommons.org/licenses/by/2.5/au/deed.zh)）协议共享
+
 <p style="color: rgb(253,201,11);" align="center">🐬🐬 欢迎评论和star 🐳🐳</p>
 
 ### git命令行
@@ -54,8 +58,8 @@
         + 用提交版本中的文件覆盖本地工作区的文件
         + git checkout HEAD~2 test.txt
         + git checkout HEAD <file> (常用)
-    <p style="text-align: center">
-        <img src="../img/checkout-file.svg" alt="checkout-file" style="width: 40%">
+     <p style="text-align: center">
+        <img src="https://user-images.githubusercontent.com/22290721/38131555-2380bf1c-343a-11e8-84e6-8474d2d8e81a.png" alt="checkout-file" style="width: 40%">
     </p>
 
     * 分支层面
@@ -70,8 +74,9 @@
         + git reset --soft <commit>
 
     <p style="text-align: center">
-        <img src="../img/reset.svg" alt="reset" style="width: 40%">
+        <img src="https://user-images.githubusercontent.com/22290721/38131865-3f9d476e-343b-11e8-8b36-dbfce778ccce.png" alt="reset" style="width: 40%">
     </p>
+
 
     除了在当前分支上操作，你还可以通过传入这些标记来修改你的缓存区或工作目录：
 
@@ -80,7 +85,7 @@
         * --hard – 缓存区和工作目录都同步到你指定的提交
          
     <p style="text-align: center">
-        <img src="../img/reset-scope.svg" alt="reset-scope" style="width: 40%">
+        <img src="https://user-images.githubusercontent.com/22290721/38131884-59efb520-343b-11e8-85fe-bfc739fe84ae.png" alt="reset-scope" style="width: 40%">
     </p>
         
     常用操作：
@@ -93,18 +98,17 @@
         + git reset HEAD~2 text.txt
         + git reset HEAD <file>
 
-    <p style="text-align: center">
-        <img src="../img/reset-file.svg" alt="reset-file" style="width: 40%">
+      <p style="text-align: center">
+        <img src="https://user-images.githubusercontent.com/22290721/38132348-4fd7245e-343d-11e8-959f-8caf4287a4e3.png" alt="reset-file" style="width: 40%">
     </p>
 
 11. git revert
-
     * Revert撤销一个提交的同时会创建一个新的提交。这是一个安全的方法，因为它不会重写提交历史。
     * git revert HEAD~2
         - 会找出倒数第二个提交，然后创建一个新的提交来撤销这些更改，然后把这个提交加入项目中。
 
     <p style="text-align: center">
-        <img src="../img/revert.svg" alt="revert" style="width: 40%">
+        <img src="https://user-images.githubusercontent.com/22290721/38132384-6fe2c564-343d-11e8-8d7e-8ac0734dab74.png" alt="revert" style="width: 40%">
     </p>
 
 12. git stash
@@ -125,7 +129,7 @@
 14. 简记图
 
 <p style="text-align: center">
-    <img src="../img/main.jpg" alt="main" style="width: 40%">
+    <img src="https://user-images.githubusercontent.com/22290721/38132460-baa96bfc-343d-11e8-848f-869435d8f5c9.jpg" alt="main" style="width: 30%">
 </p>
 
 15. 参考

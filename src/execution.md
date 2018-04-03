@@ -1,3 +1,7 @@
+> BY 张建成([prettyEcho@github](https://github.com/prettyEcho))
+> 
+>  除非另行注明，页面上所有内容采用知识共享-署名（[CC BY 2.5 AU](https://creativecommons.org/licenses/by/2.5/au/deed.zh)）协议共享
+
 <p style="color: rgb(253,201,11);" align="center">🐬🐬 欢迎评论和star 🐳🐳</p>
 
 天气渐渐转暖了，树渐渐露出了枝芽，小河也欢快的向前流着，感觉大地充满了生命力，真的好开心 😄😄😄
