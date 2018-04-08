@@ -2,6 +2,8 @@
 > 
 >  除非另行注明，页面上所有内容采用知识共享-署名（[CC BY 2.5 AU](https://creativecommons.org/licenses/by/2.5/au/deed.zh)）协议共享
 
+<p style="color: rgb(253,201,11);" align="center">🐬🐬 欢迎评论和star 🐳🐳</p>
+
 写这篇文章时的心情是十分忐忑的💢，因为对于我们今天的主角：**闭包**，很多小伙伴都写过关于它的文章，相信大家也读过不少，那些文章到底有没有把JS中这个近似神话的东西讲清楚，说实心里，真的有，但为数不多。
 
 写这篇文章的初衷就是：**让所有看到这篇文章的小伙伴都彻彻底底的理解闭包，提高大家的JS水平，写出更高质量的JS代码。**
@@ -60,7 +62,7 @@ baz();
 此时，JS的作用域气泡是这样的：
 
 <p style="text-align: center">
-	<img src="https://user-images.githubusercontent.com/22290721/38412730-97a3fd6e-39bc-11e8-9a53-208d71ca98eb.png" alt="closure" style="width: 80%">
+	<img src="https://user-images.githubusercontent.com/22290721/38412730-97a3fd6e-39bc-11e8-9a53-208d71ca98eb.png" alt="closure" style="width: 40%">
 </p>
 
 
@@ -71,7 +73,6 @@ baz();
 接下来，**`baz()`执行，bar进入执行栈，闭包（foo）形成**，此时bar中依旧可以访问到其父作用域气泡中的变量a。
 
 这样说可能不是很清晰，接下来我们借助chrome的调试工具看下闭包产生的过程。
-
 
 当JS引擎执行到这行代码`let bar = foo();`时：
 
@@ -114,5 +115,107 @@ baz();
 
 闭包，在JS中绝对是一个高贵的存在，它让很多不可能实现的代码成为可能，但是物虽好，也要合理使用，不然不但不能达到我们想要的效果，有的时候可能还会适得其反。
 
-* 内存泄漏
+* 内存泄漏（Memory Leak)
 
+	JavaScript分配给Web浏览器的可用内存数量通常比分配给桌面应用程序的少，这样做主要是防止JavaScript的网页耗尽全部系统内存而导致系统崩溃。
+	
+	因此，要想使页面具有更好的性能，就必须确保页面占用最少的内存资源，也就是说，我们应该保证执行代码只保存有用的数据，一旦数据不再有用，我们就应该让垃圾回收机制对其进行回收，释放内存。
+	
+	我们现在都知道了闭包通过阻止垃圾回收机制对变量进行回收，因此变量会永远存在内存中，即使当变量不再被使用时，这样会造成内存泄漏，会严重影响页面的性能。因此当变量对象不再适用时，我们要将其释放。
+	
+	我们拿上面代码举例：
+	
+	```
+	function foo() {
+	    let a = 2;
+	
+	    function bar() {
+	        console.log( a );
+	    }
+	
+	    return bar;
+	}
+	
+	let baz = foo();
+	
+	baz(); //baz指向的对象会永远存在堆内存中
+	
+	baz = null; //如果baz不再使用，将其指向的对象释放
+	
+	```
+	
+	关于内存泄漏，推荐 [阮一峰老师博客](http://www.ruanyifeng.com/blog/2017/04/memory-leak.html)。
+	
+### 闭包的应用
+
+1. 模块
+
+	一个模块应该具有私有属性、私有方法和公有属性、公有方法。
+
+	而闭包能很好的将模块的公有属性、方法暴露出来。
+	
+	```
+	var myModule = (function (window, undefined) {
+		let name = "echo";
+		
+		function getName() {
+			return name;
+		}
+		
+		return {
+			name,
+			getName
+		}
+	})(window);
+	
+	console.log( myModule.name ); // echo
+	console.log( myModule.getName() ); // echo
+	```
+	
+	"return"关键字将对象引用导出赋值给myModule，从而应用到闭包。
+
+2. 延时器(setTimeout)、计数器(setInterval)
+
+	这里简单写一个常见的关于闭包的面试题。
+	
+	```
+	for( var i = 0; i < 5; i++ ) {
+		setTimeout(() => {
+			console.log( i );
+		}, 1000 * i)
+	}
+	```
+	
+	答案大家都知道：**每秒钟输出一个5，一共输出5次**。
+	
+	那么如何做到**每秒钟输出一个数，以此为0，1，2，3，4**呢？
+	
+	我们这里只介绍闭包的解决方法，其他类似块作用域等等的解决方法，我们这里不讨论。
+	
+	```
+	for( var i = 0; i < 5; i++ ) {
+		((j) => {
+			setTimeout(() => {
+				console.log( j );
+			}, 1000 * j)
+		})(i)	
+	}
+	```
+	
+	"setTimeout"方法里应用了闭包，使其内部能够记住每次循环所在的词法作用域和作用域链。
+	
+	由于setTimeout中的回调函数会在当前任务队列的尾部进行执行，因此上面第一个例子中每次循环中的setTimeout回调函数记住的i的值是for循环作用域中的值，此时都是5，而第二个例子记住的i的数为setTimeout的父级作用域自执行函数中的j的值，依次为0，1，2，3，4。	
+
+3. 监听器
+
+	```
+	var oDiv = document.querySeletor("#div");
+	
+	oDiv.onclick = function() {
+		console.log( oDiv.id );
+	}
+	```
+
+=- 关于闭包，我觉得我说清楚了，你看清楚了吗？留言告诉我吧 -=
+
+**🤗 关注我的 [github](https://github.com/prettyEcho/deep-js) 让我们一起成长。。。**      
