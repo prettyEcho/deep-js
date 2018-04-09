@@ -77,7 +77,7 @@ baz();
 当JS引擎执行到这行代码`let bar = foo();`时：
 
 <p align="center">
-	<img src="https://user-images.githubusercontent.com/22290721/38413724-151011f0-39bf-11e8-9b56-12dd5df22ada.jpg" alt="closure" width="80%">
+	<img src="https://user-images.githubusercontent.com/22290721/38487982-9301fd1a-3c14-11e8-8238-57321d84eb05.jpg" alt="closure" width="80%">
 </p>
 
 图中所示，`let baz = foo();`已经执行完，即将执行`baz();`，此时Call Stack中只有全局上下文。
@@ -85,7 +85,7 @@ baz();
 接下来`baz();`执行：
 
 <p align="center">
-	<img src="https://user-images.githubusercontent.com/22290721/38415529-61d0e87a-39c4-11e8-9110-fa728845bf31.jpg" alt="closure" width="80%">
+	<img src="https://user-images.githubusercontent.com/22290721/38488086-e0d4349a-3c14-11e8-84af-ea05e7546a43.jpg" alt="closure" width="80%">
 </p>
 
 我们可以看到，此时bar进入Call Stack中，并且Closure(foo)形成。
