@@ -1,19 +1,24 @@
+> BY 张建成([prettyEcho@github](https://github.com/prettyEcho))
+> 
+>  除非另行注明，页面上所有内容采用知识共享-署名（[CC BY 2.5 AU](https://creativecommons.org/licenses/by/2.5/au/deed.zh)）协议共享
+
+<p style="color: rgb(253,201,11);" align="center">🐬🐬 欢迎评论和star 🐳🐳</p>
+
 如题，this就是一个淘气鬼。
 
 对此我想很多小伙伴都不会反对我，对吧？😘😘😘
 
-在工作中我们经常被它搞得晕头转向的，一遇到this，首先闭目自问:
-TND指向谁。明明觉得它指向a，怎么偏偏就指向了b。真是无语。😓😓😓
+在工作中我们经常被它搞得晕头转向的，一遇到this，首先闭目自问:TND指向谁。明明觉得它指向a，怎么偏偏就指向了b。真是无语。😓😓😓
 
 就这种情况，我是不能忍的，小样，竟敢这样戏耍我们玩JS的人，看我不整蒙你。
 
-于是决心出这样一篇文章，分析this到底是什么，所有this指向的场景以及如何使用this，帮助大家彻彻底底的搞定this，希望大家多多支持！！！
+于是决心写这样一篇文章，分析this到底是什么，所有this指向的场景以及如何使用this，帮助大家彻彻底底的搞定this，希望大家多多支持！！！
 
 ### 探个究竟
 
-关于this，我们放在嘴边的话就是：this指向谁。很少的小伙伴会想到，**this到底是什么**，**指向指的是什么**，以及**什么时候确定的指向**。
+关于this，我们放在嘴边的话就是：this指向谁。很少有小伙伴会想到，**this到底是什么**，**指向指的是什么**，以及**什么时候确定的指向**。
 
-此时，给自己30秒钟的时间，想一想自己是否清楚我提的3个问题。
+此时，给自己30秒钟的时间，想一想自己是否清楚我提的这3个问题。
 
 如果觉得自己对这些问题很清楚，我觉得应该为自己小小的高兴一下。
 
@@ -25,7 +30,7 @@ TND指向谁。明明觉得它指向a，怎么偏偏就指向了b。真是无语
 	
 * 指向是啥
 
-	指向也作“引用”。JS中对象存在堆中，“this指向谁”也就是：this存储谁地址。也可以简单理解为某个函数名的别名（alias).
+	指向也作“引用”。JS中对象存在堆中，“this指向谁”也就是：this存储谁的地址。也可以简单理解为某个函数名的别名（alias).
 	
 * 什么时候确定指向
 
@@ -40,10 +45,11 @@ TND指向谁。明明觉得它指向a，怎么偏偏就指向了b。真是无语
 
 * 函数被obj所拥有
 
-	上面我们说到两点，可以为我们确定this指向提供理论依据：
+	上面我们说到的两点，可以为我们确定this指向提供理论依据：
 
 	1. 函数执行的时候确定this指向 => this指向确定一定是在函数最终执行的位置
 	2. 	this引用的是函数据以执行的环境对象 => this指向和函数的拥有者有密切关系
+
 
 	结论：**this指向函数最终调用的拥有者** （记住这句话能帮你解决一半以上的this问题）
 
@@ -219,7 +225,7 @@ TND指向谁。明明觉得它指向a，怎么偏偏就指向了b。真是无语
 
 ##### 三、 new操作符下的this
 
-	**new把构造函数中的this指向新创建的实例对象**（如果不清楚可以去研究下new操作符具体都干了什么）
+**new把构造函数中的this指向新创建的实例对象**（如果不清楚可以去研究下new操作符具体都干了什么）
 	
 	```
 	function People(name) {
@@ -294,66 +300,66 @@ TND指向谁。明明觉得它指向a，怎么偏偏就指向了b。真是无语
 ##### 五、箭头函数中的this
 
 箭头函数中的this可就神奇了，来来，我们一起看下。
-
+	
 准确的说，**箭头中并不存在this上下文**（真懒，嘿嘿，和我一样），它懒得自己生成this上下文，直接**捕获父级作用域中的this**。但是懒也有懒的好处，因为在定义的时候我们就能确定箭头函数中的this（词法作用域），而且也不会受到严格模式、call、apply、bind的限制。
-
+	
 说的什么鬼东西？
-
+	
 行，我们代码分析。
-
+	
 ```
 var a = 10;
 var obj = {
-    a: 20,
-    fn: () => {
-        var a = 30;
-        console.log( this.a );
-    }
+	a: 20,
+        fn: () => {
+	    var a = 30;
+	    console.log( this.a );
+	}
 }
-
+	
 obj.fn();
 ```
 箭头函数fn向上寻找this，首先遇到obj，发现它不能构成作用域，也不会存在this，直接跳过，此时遇到全局window，发现其中的this，真好，拿过来，那么我们结果自然就是10.
-
-我们想让结构是20，怎么办，继续看。
-
+	
+我们想让结果是20，怎么办，继续看。
+	
 ```
 var a = 10;
 var obj = {
-    a: 20,
-    fn: function() {
-        (() => {
-            var a = 30;
-            console.log( this.a );
-        })();
-    }
+	a: 20,
+	fn: function() {
+	    (() => {
+	        var a = 30;
+	        console.log( this.a );
+	    })();
+	}
 }
-
+	
 obj.fn();
 ```
 箭头函数开始向上寻找this，遇到函数作用域fn，发现其中有this上下文，今天真走运，刚出门就找到了，直接拿过来用，哈哈。所以自然而然箭头函数中的this就是函数fn中的this，通过上面的知识，我们知道fn中的this指向obj，因此自然而然输出20。
-
+	
 很简单是吧？
-
+	
 那么你分析下，下面这题输出什么？
-
+	
 ```
 var a = 10;
 var obj = {
-    a: 20,
-    fn: function() {
-        (() => {
-            var a = 30;
-            (() => {
-                var a = 40;
-                (() => {
-                    console.log( this.a );
-                })()
-            })();
-        })();
-    }
+	a: 20,
+	fn: function() {
+	    (() => {
+	        var a = 30;
+	        (() => {
+	            var a = 40;
+	            (() => {
+	                console.log( this.a );
+	            })()
+	        })();
+	    })();
+	}
 }
-
+	
 obj.fn();
 ```
 
@@ -364,8 +370,120 @@ obj.fn();
 好累，this指向会出现这么多种情况，谁记得住，别急，所有你能想到的我都为你准备好了。（请叫我雷锋）
 
 <p align="center">
-<img src="../img/this.png" alt="this指向总结">
+<img src="https://user-images.githubusercontent.com/22290721/38778241-36f852c4-40e9-11e8-9570-47b7166d8a52.png" alt="this指向总结" style="width: 20%">
 </p>
 
 ### 你皮，任你皮
 
+你不是淘气吗？你不是变来变去吗？
+
+看我不找个绳子绑住你。
+
+于是乎，JavaScript给了我们三条绳子。
+
+我们认识下它们吧。
+
+##### 一、call、apply
+
+这两条绳子都可以把this限制到固定的对象上，只是传递参数的方式不一样。
+
+* call：fn.call(obj, arg1, arg2)
+* apply: fn.apply(obj, [arg1, arg2])
+
+继续看代码：
+
+```
+var a = 10;
+
+function foo() {
+	console.log( this.a );
+}
+
+var obj = {
+	a: 20
+}
+
+foo.call(obj); // 20 this -> obj
+foo.apply(obj); // 20 this -> obj
+```
+这样我们就把this硬生生的绑定到obj上了。
+
+接下来看下两个函数的区别
+
+```
+function sum(a, b) {
+    console.log(this.c + a + b);
+}
+
+var obj = {
+    c: 10
+}
+
+sum.call(obj, 20, 30); // 60
+sum.apply(obj, [20, 30]); // 60
+```
+
+简单说下我们实际应用
+
+* 类数组->数组
+
+```
+function foo(a, b){
+    let arr = [].slice.call(arguments);
+    console.log( arr );
+}
+
+foo(1,2);
+```
+
+补充2种方法：
+
+1. `Array.from(arguments)`
+2. `[...arguments]`
+
+* 继承
+
+```
+var People = function(name) {
+    this.name = name;
+}
+
+var Programmer = function(name) {
+    People.call(this, name)
+}
+
+Programmer.prototype.getName = function() {
+    console.log( `${this.name} is a programmer!` );
+}
+
+var person = new Programmer('echo');
+
+person.getName(); // echo is a programmer!
+```
+
+#### 二、bind
+
+bind方法只是把this绑定到固定对象上，不会传递参数。
+
+```
+var people = {
+	name: 'echo',
+	getName() {
+		setTimeout(function(){
+			console.log(this.name);
+		}.bind(this), 1000)
+	}
+}
+
+peopler.getName(); // echo
+```
+
+当然我们也可以通过声明一个临时变量来暂存this，利用作用域链实现this的处理，这种方法很简单，这里不给出例子了。
+
+### 唯一的不足
+
+这篇文章我认为唯一不足的地方就是，我没有涉及到this在Node环境下的情况。起初我的确把Node环境考虑进来了，写着写着发现出现的情况太多了，为了不给大家营造一个十分混乱的局面，我决定把所有关于在Node中的情况放弃了。
+
+在这深表抱歉 ！🙏🙏🙏
+
+**🤗 如果你觉得写的还不错，请关注我的 [github](https://github.com/prettyEcho/deep-js) 吧，让我们一起成长。。。**      

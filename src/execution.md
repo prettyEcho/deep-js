@@ -1,21 +1,23 @@
 > BY 张建成([prettyEcho@github](https://github.com/prettyEcho))
 > 
->  除非另行注明，页面上所有内容采用知识共享-署名（[CC BY 2.5 AU](https://creativecommons.org/licenses/by/2.5/au/deed.zh)）协议共享
+>  除非另行注明，页面上所有内容采用知识共享-署名（[CC BY 2.5 AU](https://creativecommons.org/licenses/by/2.5/au/deed.zh)）协议共享   
+ 
+<p align= "center">🐬🐬 欢迎评论和star 🐳🐳</p>
 
-<p style="color: rgb(253,201,11);" align="center">🐬🐬 欢迎评论和star 🐳🐳</p>
+天气渐渐转暖了，树渐渐露出了枝芽，小河也欢快的向前流着，感觉大地充满了生命力，好开心 😄😄😄
 
-天气渐渐转暖了，树渐渐露出了枝芽，小河也欢快的向前流着，感觉大地充满了生命力，真的好开心 😄😄😄
-
-附上美图一张
+附上美图一张
 <p style="text-align: center">
-<img src="../img/spring.jpeg" alt="AST" style="width: 20%">
+<img src="https://user-images.githubusercontent.com/22290721/37941945-572bd4ee-31a3-11e8-8252-ee75c346c247.jpeg" alt="AST" style="width: 10%">
 </p>
 
-小伙伴们，我们也出来活动活动筋骨，迎接我们2018年的春天。
+小伙伴们，我们也出来活动活动筋骨，迎接我们2018年的春天。
 
 今天我们说说JS执行流程，现在我们先暂且不考虑异步的情况。
 
-装备好了吗，go...
+如果你把下面的内容都吃透，那你就会发现JS内部是多么精彩的一个世界。
+
+还等什么，go...
 
 ## 编译阶段 
 
@@ -35,7 +37,9 @@
 
 AST大概是下面的样子：
 
-<img src="./img/Parsing.jpg" alt="AST">
+<p align="center">
+<img src="https://user-images.githubusercontent.com/22290721/37942239-c3fd329c-31a4-11e8-81e8-6d18d8f13181.jpg" alt="AST" width="80%" align="center">
+</p>
 
 #### 生成可执行代码
 
@@ -43,7 +47,7 @@ AST大概是下面的样子：
 
 ## 执行阶段 
 
-接下来，我们以一个简单例子进行分析。
+接下来，我们以一个简单例子进行分析。
 
 ```
 var a = 2;
@@ -80,10 +84,10 @@ var globalObject = {
 **2. JS引擎会创建一个执行环境栈（Execution Context Stack)**
 
 * 栈
-提到栈，小伙伴们都知道，是一种类似羽毛球筒存储羽毛球的数据结构，采用**先进后出，后进先出**的特点。
+提到栈，小伙伴们都知道，栈是一种类似羽毛球筒存储羽毛球的数据结构，采用**先进后出，后进先出**的特点。
 
-<p style="text-align: center">
-<img src="./img/data-instructure.jpg" alt="AST" style="width: 20%">
+<p align="center">
+<img src="https://user-images.githubusercontent.com/22290721/37942549-3538e1ee-31a6-11e8-8d58-718fac1e0851.jpg" alt="栈" width="20%">
 </p>
 
 上图中的羽毛球1一定是先放入栈中，然后是羽毛球2，以此类推，而出栈时，一定是羽毛球5先拿出来，然后是羽毛球4，以此类推，这种方式和栈存取数据的方式如出一辙。
@@ -105,9 +109,9 @@ var globalObject = {
 
 说到上下文，你可能会有这样的疑惑：上下文不就是作用域吗？
 
-老铁，我肯定的告诉你，**上下文不是作用域**。的确，在JS里，这还真是个很难区分的东东。不过现在我还不能马上道出他们的区别，因为作用域的知识，我们还没有涉及，👉[彻底搞懂JavaScript作用域](https://github.com/prettyEcho/deep-js/issues/2)，通过这篇文章，你将彻彻底底了解关于作用域的一切。
+老铁，我肯定的告诉你，**上下文不是作用域**。的确，在JS里，这还真是个很难区分的东东。不过现在我还不能马上道出他们的区别，因为作用域的知识，我们还没有涉及，👉[彻底搞懂JavaScript作用域](https://github.com/prettyEcho/deep-js/issues/2)，通过这篇文章，你将彻彻底底了解关于作用域的一切。
 
-那在JS中会有几种执行环境呢？
+那在JS中会有几种执行环境呢？
 
 大概有3种：
 * 全局环境：JavaScript代码运行起来会首先进入该环境
@@ -122,7 +126,7 @@ go on...
 
 **5. 代码开始从上往下执行，这里我们暂且不谈标识符处理，当代码执行到bar(),生成bar执行上下文，推入栈中**
 
-**6. 代码执行到foo(),生成foo执行上下文，推入栈中**
+**6. 代码执行到foo(),生成foo执行上下文，推入栈中**
 
 **7. foo()执行完，foo执行上下文出栈**
 
@@ -130,21 +134,19 @@ go on...
 
 **9. 全局上下文执行上下文出栈**
 
-我们用图走一下js执行流程，是这样的：
+我们用图走一下js执行流程，是这样的：
 
-<p style="text-align: center">
-<img src="./img/flow.jpg" alt="AST" style="width: 80%">
+<p align="center">
+<img src="https://user-images.githubusercontent.com/22290721/37942685-f02620fc-31a6-11e8-9b53-1e87f6cb3d26.jpg" alt="flow" width="80%">
 </p>
 
-小伙伴们，现在是不是对JS执行流程有了一个整体认识，下面我们来说点更有意思的。
+小伙伴们，现在是不是对JS执行流程有了一个整体认识，下面我们来说点更有意思的。
 
 ## 上下文执行细节
 
 我们先看整体了解下
 
-<p style="text-align: center">
-<img src="./img/context-detail.png" alt="AST" style="width: 80%">
-</p>
+<img width="1015" alt="context-detail" src="https://user-images.githubusercontent.com/22290721/37942763-4f4e5b94-31a7-11e8-8a58-e53fa3b193ef.png">
 
 ### 创建阶段
 
@@ -210,7 +212,7 @@ foo();
 
 #### 2. 确定作用域链
 
-作用域链是由当前作用域与上层一系列父级作用域组成，作用域的头部永远是当前作用域，尾部永远是全局作用域。作用域链保证了当前上下文对其有权访问的变量的有序访问。
+作用域链是由当前作用域与上层一系列父级作用域组成，作用域的头部永远是当前作用域，尾部永远是全局作用域。作用域链保证了当前上下文对其有权访问的变量的有序访问。
 
 我们先简单了解下，详细的我们会在[彻底搞懂JavaScript作用域](https://github.com/prettyEcho/deep-js/issues/2)中谈到。
 
@@ -245,13 +247,13 @@ EC(baz) = {
 }
 ```
 
-#### 3. 确定this指向
+#### 3. 确定this指向
 
-谈到this，大家是不是感到很兴奋，平时写代码时，被这家户整的晕头转向的，这回我们终于可以揭开this的神秘面纱了，搞清楚它在JS到底是怎样的存在，不过客官别着急，我们这里先不介绍this，因为关于this的内容太多了，我们得慢慢去品味它，这里先记住，**this是在执行上下文创建阶段确定的**。
+谈到this，大家是不是感到很兴奋，平时写代码时，被这家伙整的晕头转向的，这回我们终于可以揭开this的神秘面纱了，搞清楚它在JS到底是怎样的存在，不过客官别着急，我们这里先不介绍this，因为关于this的内容太多了，我们得慢慢去品味它，这里先记住，**this是在执行上下文创建阶段确定的**。
 
 this传送门👇👇👇
 
-[this真是一个淘气鬼](https://github.com/prettyEcho/deep-js/issues/3)
+[this是个淘气鬼](https://github.com/prettyEcho/deep-js/issues/5)
 
 #### 全局上下文
 
@@ -267,7 +269,7 @@ EC(global) = {
 }
 ```
 
-### 执行阶段
+### 执行阶段
 
 在执行阶段变量对象(Variable Object)变为活动对象(Active Object)。
 VO => AO
@@ -281,5 +283,6 @@ VO => AO
 喝杯茶，
 
 休息一下。
+
 
 
