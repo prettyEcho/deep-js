@@ -19,6 +19,10 @@
 <em style="font-size: 18px;">🎉🎉 <span style="color: blue">持续更新</span> 🎉🎉</em>
 
 ## 2018
+### April
+
+* April 15,  2017 👉 [this是个淘气鬼](https://github.com/prettyEcho/deep-js/issues/5)
+
 ### March
 
 * March 5,  2017 👉 [原来JavaScript内部是这样运行的](https://github.com/prettyEcho/deep-js/issues/1)
