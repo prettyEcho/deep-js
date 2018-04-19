@@ -151,12 +151,20 @@
     * git branch -D <branch> : 强制删除指定分支，即使包含未合并更改。如果你希望永远删除某条开发线的所有提交，你应该用这个命令。
     * git branch -m <branch> : 将当前分支命名为 <branch>。
 
-14. 简记图
+14. git diff
+    * git diff <filepath?>: 默认比较工作区和暂存区的差别
+    * git diff HEAD <filepath?>: 比较工作区和当前版本区的差别
+    * git diff <commit-id> <filepath?>: 比较工作区和某一分支的差别
+    * git diff --cached <filepath?>: 比较暂存区和当前版本区的差别
+    * git diff --cached <commit-id> <filepath?>: 比较暂存区和某一分支的差别
+    * git diff [<commit-id>] [<commit-id>]: 比较两个commit-id之间的差异
+    
+15. 简记图
 
 <p style="text-align: center">
     <img src="https://user-images.githubusercontent.com/22290721/38132460-baa96bfc-343d-11e8-848f-869435d8f5c9.jpg" alt="main" style="width: 30%">
 </p>
 
-15. 参考
+16. 参考
 [https://www.cnblogs.com/houpeiyong/p/5890748.html](https://www.cnblogs.com/houpeiyong/p/5890748.html)
 [https://github.com/geeeeeeeeek/git-recipes](https://github.com/geeeeeeeeek/git-recipes)
