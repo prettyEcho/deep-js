@@ -44,8 +44,33 @@
     * git push origin <branch>: 推送本地git到远端某个分支
     * git push --set-upstream origin <branch>: 创建远端分支并推送代码
 
-8. git log git
+8. git log 
     * 命令显示已提交的快照
+    * git log
+    * git log -p -2: -p 选项展开显示每次提交的内容差异，用 -2 则仅显示最近的两次更新
+    * git log --stat: 显示增减行提示
+    * git --pretty: 可以指定使用完全不同于默认格式的方式展示提交历史,可选择的选项：oneline, short, full, fuller, format
+    format格式清单：
+    ```
+    选项	 说明
+    %H	提交对象（commit）的完整哈希字串
+    %h	提交对象的简短哈希字串
+    %T	树对象（tree）的完整哈希字串
+    %t	树对象的简短哈希字串
+    %P	父对象（parent）的完整哈希字串
+    %p	父对象的简短哈希字串
+    %an	作者（author）的名字
+    %ae	作者的电子邮件地址
+    %ad	作者修订日期（可以用 -date= 选项定制格式）
+    %ar	作者修订日期，按多久以前的方式显示
+    %cn	提交者(committer)的名字
+    %ce	提交者的电子邮件地址
+    %cd	提交日期
+    %cr	提交日期，按多久以前的方式显示
+    %s	提交说明
+    ```
+    * git --graph: ASCll图形
+    * 美观：git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 
 9. git checkout
     * 这个命令有三个不同的作用：检出文件、检出提交和检出分支
